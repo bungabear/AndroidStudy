@@ -5,18 +5,21 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bungabear.androidstudy.R;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BasicViewLogin extends AppCompatActivity {
 
     private EditText etId, etPw;
     private TextView tvIdInfo, tvPwInfo;
+    private Pattern upperCase = Pattern.compile(".*[A-Z]+.*");
+    // ! @ # $ % ^ & * ( ) ' ; / ? \ [ ] | : " < > ,
+    private Pattern specialChars = Pattern.compile(".*[!@#$%\\^\\.&*()';/?\\\\ \\[\\]\\|\\:\"<>,]+.*");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,14 +46,13 @@ public class BasicViewLogin extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
             String email = s.toString();
             // \\w : 문자, ++ 1개이상. @ : @, \\. : .(dot)
-            Pattern regex = Pattern.compile("\\w++@\\w++\\.\\w++");
-            Matcher m = regex.matcher(email);
-            boolean b = m.matches();
-            if(b){
+//            Pattern.compile("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$").matcher(email).matches();
+            if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 tvIdInfo.setText("정상적인 아이디입니다.");
-                return;
             }
-            tvIdInfo.setText("이메일 형식이 아닙니다.");
+            else {
+                tvIdInfo.setText("이메일 형식이 아닙니다.");
+            }
         }
     };
 
@@ -65,25 +67,18 @@ public class BasicViewLogin extends AppCompatActivity {
             String pw = s.toString();
             if(pw.length() < 8) {
                 tvPwInfo.setText("8자 이상 입력해주세요.");
-                return;
             }
             else {
-                Pattern regex = Pattern.compile("\\.*+[\\!@#\\$%\\^&\\*()]++\\.*+");
-                Matcher m = regex.matcher(pw);
-                boolean b = m.matches();
-                if(b){
-                    Pattern regex2 = Pattern.compile("\\.*+[A-Z]++\\.*+");
-                    Matcher m2 = regex2.matcher(pw);
-                    boolean b2 = m.matches();
-                    if(b2){
+                if(upperCase.matcher(pw).matches()){
+                    if(specialChars.matcher(pw).matches()){
                         tvPwInfo.setText("정상입니다.");
                     }
                     else {
-                        tvPwInfo.setText("대문자를 입력해주세요.");
+                        tvPwInfo.setText("특수문자를 입력해주세요.");
                     }
                 }
                 else {
-                    tvPwInfo.setText("특수문자를 입력해주세요.");
+                    tvPwInfo.setText("대문자를 입력해주세요.");
                 }
             }
         }
