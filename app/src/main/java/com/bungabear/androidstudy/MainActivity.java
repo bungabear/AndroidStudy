@@ -1,68 +1,50 @@
 package com.bungabear.androidstudy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+import com.bungabear.androidstudy.BasicView.BasicViewLogin;
+import com.bungabear.androidstudy.BasicView.BasicViewTest;
+import com.bungabear.androidstudy.BasicView.BasicViewTicTaeToe;
+import com.bungabear.androidstudy.BasicView.BasicViewTicTaeToeDynamic;
 
-    private Button mainBtn1;
-    private CheckBox mainChk1;
-    private TextView mainTv1;
-    private EditText mainEt1;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button btn1, btn2, btn3, btn4;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btn1 = findViewById(R.id.btn_basic_test_activity);
+        btn2 = findViewById(R.id.btn_basic_test_tic_tae_toe);
+        btn3 = findViewById(R.id.btn_basic_test_login);
+        btn4 = findViewById(R.id.btn_basic_test_tic_tae_toe_dynamic);
 
-        mainBtn1 = findViewById(R.id.main_btn_1);
-        mainChk1 = findViewById(R.id.main_chk_1);
-        mainTv1 = findViewById(R.id.main_tv_1);
-        mainEt1 = findViewById(R.id.main_et_1);
-        mainEt1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Minjae",s.toString());
-                mainTv1.setText(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        mainBtn1.setOnClickListener(this);
-        mainChk1.setOnCheckedChangeListener(this);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.main_btn_1){
-            Log.d("Minjae", "버튼 눌림");
-            mainChk1.setChecked(true);
-        }
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(buttonView.getId() == R.id.main_chk_1){
-            Log.d("Minjae", ""+isChecked);
-            mainTv1.setText(""+isChecked);
+        switch(v.getId()){
+            case R.id.btn_basic_test_activity:
+                startActivity(new Intent(getApplicationContext(), BasicViewTest.class));
+                break;
+            case R.id.btn_basic_test_tic_tae_toe:
+                startActivity(new Intent(getApplicationContext(), BasicViewTicTaeToe.class));
+                break;
+            case R.id.btn_basic_test_login:
+                startActivity(new Intent(getApplicationContext(), BasicViewLogin.class));
+                break;
+            case R.id.btn_basic_test_tic_tae_toe_dynamic:
+                startActivity(new Intent(getApplicationContext(), BasicViewTicTaeToeDynamic.class));
+                break;
         }
     }
 }
