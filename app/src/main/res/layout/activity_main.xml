@@ -1,46 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_basic_test_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="ViewBasic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_basic_test_tic_tae_toe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Tic-Tac-Toe"
-        app:layout_constraintStart_toEndOf="@+id/btn_basic_test_activity"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_basic_test_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Login Activity"
-        app:layout_constraintStart_toEndOf="@+id/btn_basic_test_tic_tae_toe"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_basic_test_tic_tae_toe_dynamic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Tic-Tac-Toe Dynamic View Add"
-        app:layout_constraintStart_toEndOf="@+id/btn_basic_test_activity"
-        app:layout_constraintTop_toBottomOf="@+id/btn_basic_test_tic_tae_toe" />
+<FrameLayout
+    android:id="@+id/main_fragment_placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>

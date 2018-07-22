@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BasicView.BasicViewTest"/>
-        <activity android:name=".BasicView.BasicViewLogin"/>
-        <activity android:name=".BasicView.BasicViewTicTaeToe"/>
-        <activity android:name=".BasicView.BasicViewTicTaeToeDynamic"/>
+        <activity android:name=".BasicViewTest.BasicViewTest"/>
+        <activity android:name=".BasicViewTest.BasicViewLogin"/>
+        <activity android:name=".BasicViewTest.BasicViewTicTaeToe"/>
+        <activity android:name=".BasicViewTest.BasicViewTicTaeToeDynamic"/>
+        <activity android:name=".ActivityTest.ResultRequestActivity"/>
     </application>
 
 </manifest>

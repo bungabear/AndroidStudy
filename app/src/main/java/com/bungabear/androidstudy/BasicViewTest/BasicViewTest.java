@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.BasicView;
+package com.bungabear.androidstudy.BasicViewTest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
