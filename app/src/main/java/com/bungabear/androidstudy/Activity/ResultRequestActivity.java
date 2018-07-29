@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.ActivityTest;
+package com.bungabear.androidstudy.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bungabear.androidstudy.BasicViewTest.BasicViewLogin;
 import com.bungabear.androidstudy.R;
 
 public class ResultRequestActivity extends AppCompatActivity {

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bungabear.androidstudy">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BasicViewTest.BasicViewTest"/>
-        <activity android:name=".BasicViewTest.BasicViewLogin"/>
-        <activity android:name=".BasicViewTest.BasicViewTicTaeToe"/>
-        <activity android:name=".BasicViewTest.BasicViewTicTaeToeDynamic"/>
-        <activity android:name=".ActivityTest.ResultRequestActivity"/>
+        <activity android:name=".Activity.BasicViewTest"/>
+        <activity android:name=".Activity.BasicViewLogin"/>
+        <activity android:name=".Activity.BasicViewTicTaeToe"/>
+        <activity android:name=".Activity.BasicViewTicTaeToeDynamic"/>
+        <activity android:name=".Activity.ResultRequestActivity"/>
+        <activity android:name=".Activity.RetrofitTest"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy;
+package com.bungabear.androidstudy.Activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,13 +10,14 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import com.bungabear.androidstudy.ActivityTest.ResultRequestActivity;
-import com.bungabear.androidstudy.BasicViewTest.BasicViewLogin;
-import com.bungabear.androidstudy.BasicViewTest.BasicViewTest;
-import com.bungabear.androidstudy.BasicViewTest.BasicViewTicTaeToe;
-import com.bungabear.androidstudy.BasicViewTest.BasicViewTicTaeToeDynamic;
+import com.bungabear.androidstudy.Activity.ResultRequestActivity;
+import com.bungabear.androidstudy.Activity.BasicViewLogin;
+import com.bungabear.androidstudy.Activity.BasicViewTest;
+import com.bungabear.androidstudy.Activity.BasicViewTicTaeToe;
+import com.bungabear.androidstudy.Activity.BasicViewTicTaeToeDynamic;
 import com.bungabear.androidstudy.Fragment.MainListFragment;
 import com.bungabear.androidstudy.Fragment.MainRecyclerFragment;
+import com.bungabear.androidstudy.R;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         fragment.addListItem(BasicViewTicTaeToeDynamic.class, "Tic-Tac-Toe Dynamic View Add");
         fragment.addListItem(BasicViewLogin.class, "Login Activity");
         fragment.addListItem(ResultRequestActivity.class, "Login Request Activity");
+        fragment.addListItem(RetrofitTest.class, "Retrofit Test");
         for(int i = 1 ; i < 10; i++){
             fragment.addListItem(null, "");
         }
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         adapter.addListItem(BasicViewTicTaeToeDynamic.class, "Tic-Tac-Toe Dynamic View Add");
         adapter.addListItem(BasicViewLogin.class, "Login Activity");
         adapter.addListItem(ResultRequestActivity.class, "Login Request Activity");
+        adapter.addListItem(RetrofitTest.class, "Retrofit Test");
         for(int i = 1 ; i < 10; i++){
             adapter.addListItem(null, "");
         }

@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.BasicViewTest;
+package com.bungabear.androidstudy.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
