@@ -63,16 +63,16 @@ public class RetrofitTestPostFragment extends Fragment implements SamplePostRecy
         return root;
     }
     @Override
-    public void onPostClickListener(SamplePostRecyclerAdapter.PostItem item, ImageView sharedImageView) {
+    public void onPostClickListener(SamplePostRecyclerAdapter.PostItem item, ImageView sharedImageView, int position) {
         Transition defaultTransition = TransitionInflater.from(getContext()).inflateTransition(android.R.transition.move);
-        RetrofitTestPostDetailFragment detailFragment= RetrofitTestPostDetailFragment.create(getContext(), item);
+        RetrofitTestPostDetailFragment detailFragment= RetrofitTestPostDetailFragment.create(getContext(), item, position);
         detailFragment.setSharedElementEnterTransition(defaultTransition);
 //        Fragment thisFragment = getFragmentManager().findFragmentById(R.id.placeholder);
 //        thisFragment.setSharedElementReturnTransition(defaultTransition);
 
         getFragmentManager()
                 .beginTransaction()
-                .addSharedElement(sharedImageView , "icon_transition")
+                .addSharedElement(sharedImageView , "POST_TRANSITION_"+position)
                 .addToBackStack(null)
                 .replace(R.id.placeholder, detailFragment)
                 .commit();

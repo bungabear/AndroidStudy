@@ -25,11 +25,13 @@ public class RetrofitTestPostDetailFragment extends Fragment {
     private SamplePostRecyclerAdapter.PostItem item = null;
     public TextView tvPostId, tvUserId, tvTitle,tvBody;
     private ImageView ivIcon;
+    private int position;
 
-    public static RetrofitTestPostDetailFragment create(Context context, SamplePostRecyclerAdapter.PostItem item) {
+    public static RetrofitTestPostDetailFragment create(Context context, SamplePostRecyclerAdapter.PostItem item, int position) {
         RetrofitTestPostDetailFragment fragment = new RetrofitTestPostDetailFragment();
         fragment.context = context;
         fragment.item = item;
+        fragment.position = position;
         return fragment;
     }
 
@@ -47,7 +49,7 @@ public class RetrofitTestPostDetailFragment extends Fragment {
             tvUserId.setText(item.userId + "");
             tvTitle.setText(item.title );
             tvBody.setText(item.body);
-            ivIcon.setTransitionName("icon_transition");
+            ivIcon.setTransitionName("POST_TRANSITION_" + position);
             setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(android.R.transition.move));
 
         }

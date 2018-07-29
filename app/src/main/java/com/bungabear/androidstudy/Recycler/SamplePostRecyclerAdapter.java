@@ -80,7 +80,7 @@ public class SamplePostRecyclerAdapter extends RecyclerView.Adapter<SamplePostRe
             tvUserId = v.findViewById(R.id.tv_post_userid);
             tvTitle = v.findViewById(R.id.tv_post_title);
             ivIcon = v.findViewById(R.id.iv_post_icon);
-            ivIcon.setTransitionName("icon_transition");
+            ivIcon.setTransitionName("POST_TRANSITION_" + getAdapterPosition());
             tvId.setText("id : " +item.id);
             tvUserId.setText("userId : " +item.userId);
             String title = item.title;
@@ -88,13 +88,13 @@ public class SamplePostRecyclerAdapter extends RecyclerView.Adapter<SamplePostRe
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    postItemClickListener.onPostClickListener(item, ivIcon);
+                    postItemClickListener.onPostClickListener(item, ivIcon, getAdapterPosition());
                 }
             });
         }
     }
 
     public static interface PostItemClickListener{
-        void onPostClickListener(SamplePostRecyclerAdapter.PostItem item, ImageView sharedImageView);
+        void onPostClickListener(SamplePostRecyclerAdapter.PostItem item, ImageView sharedImageView, int position);
     }
 }
