@@ -24,6 +24,7 @@
         <activity android:name=".Activity.BasicViewTicTaeToeDynamic"/>
         <activity android:name=".Activity.ResultRequestActivity"/>
         <activity android:name=".Activity.RetrofitTest"/>
+        <activity android:name=".Activity.DatabindingBasic"/>
     </application>
 
 </manifest>

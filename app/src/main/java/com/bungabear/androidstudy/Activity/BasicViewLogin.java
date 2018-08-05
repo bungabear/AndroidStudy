@@ -1,21 +1,27 @@
 package com.bungabear.androidstudy.Activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bungabear.androidstudy.Model.LoginResult;
 import com.bungabear.androidstudy.R;
+import com.bungabear.androidstudy.Util.Singleton;
 
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BasicViewLogin extends AppCompatActivity {
 
@@ -40,21 +46,36 @@ public class BasicViewLogin extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent retI = new Intent();
-                if(mBoEmail && mBoPw){
-                    retI.putExtra("email", etId.getText().toString());
-                    retI.putExtra("pw", etPw.getText().toString());
-                    setResult(Activity.RESULT_OK, retI);
-                    finish();
-                }
-                else {
-                    if(!mBoPw){
-                        etPw.setError("비밀번호 형식이 아닙니다");
+                Singleton.retrofitLogin.login(etId.getText().toString(), etPw.getText().toString()).enqueue(new Callback<LoginResult>() {
+                    @Override
+                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                        if(response.isSuccessful()){
+                            LoginResult result = response.body();
+                            Log.d("test", "" + result.result);
+                            Log.d("test", "" + result.token);
+                        }
                     }
-                    if(!mBoEmail){
-                        etId.setError("이메일 형식이 아닙니다");
+
+                    @Override
+                    public void onFailure(Call<LoginResult> call, Throwable t) {
+
                     }
-                }
+                });
+//                Intent retI = new Intent();
+//                if(mBoEmail && mBoPw){
+//                    retI.putExtra("email", etId.getText().toString());
+//                    retI.putExtra("pw", etPw.getText().toString());
+//                    setResult(Activity.RESULT_OK, retI);
+//                    finish();
+//                }
+//                else {
+//                    if(!mBoPw){
+//                        etPw.setError("비밀번호 형식이 아닙니다");
+//                    }
+//                    if(!mBoEmail){
+//                        etId.setError("이메일 형식이 아닙니다");
+//                    }
+//                }
             }
         });
         etId.addTextChangedListener(emailWatcher);

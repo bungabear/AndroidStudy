@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         addToActicityList(BasicViewLogin.class, "Login Activity");
         addToActicityList(ResultRequestActivity.class, "Login Request Activity");
         addToActicityList(RetrofitTest.class, "Retrofit Test");
+        addToActicityList(DatabindingBasic.class, "DatabindingBasic Test");
     }
 
     private void addToActicityList(Class activity, String name ){
