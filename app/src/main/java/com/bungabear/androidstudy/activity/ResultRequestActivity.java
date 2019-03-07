@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.app.Activity;
 import android.content.Intent;

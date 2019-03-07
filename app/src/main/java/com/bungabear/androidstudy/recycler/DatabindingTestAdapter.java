@@ -1,11 +1,11 @@
-package com.bungabear.androidstudy.Recycler;
+package com.bungabear.androidstudy.recycler;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bungabear.androidstudy.Model.DatabindingRecyclerItem;
+import com.bungabear.androidstudy.model.DatabindingRecyclerItem;
 
 import java.util.ArrayList;
 

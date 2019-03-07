@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Model;
+package com.bungabear.androidstudy.model;
 
 import android.databinding.BindingAdapter;
 import android.databinding.BindingConversion;

@@ -4,7 +4,7 @@
         <import type="java.util.ArrayList"/>
         <variable
             name="adapter"
-            type="com.bungabear.androidstudy.Recycler.DatabindingTestAdapter"/>
+            type="com.bungabear.androidstudy.recycler.DatabindingTestAdapter"/>
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

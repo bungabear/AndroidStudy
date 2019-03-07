@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.bungabear.androidstudy.Model.LoginResult;
+import com.bungabear.androidstudy.model.LoginResult;
 import com.bungabear.androidstudy.R;
-import com.bungabear.androidstudy.Util.Singleton;
+import com.bungabear.androidstudy.util.Singleton;
 
 import java.util.regex.Pattern;
 

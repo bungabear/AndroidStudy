@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Util;
+package com.bungabear.androidstudy.util;
 
 import com.google.gson.JsonArray;
 

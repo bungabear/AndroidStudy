@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

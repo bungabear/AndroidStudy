@@ -1,11 +1,11 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
-import com.bungabear.androidstudy.Fragment.RetrofitTestPostFragment;
+import com.bungabear.androidstudy.fragment.RetrofitTestPostFragment;
 import com.bungabear.androidstudy.R;
 
 /**

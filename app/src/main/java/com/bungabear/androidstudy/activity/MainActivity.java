@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import com.bungabear.androidstudy.Fragment.MainListFragment;
-import com.bungabear.androidstudy.Fragment.MainRecyclerFragment;
+import com.bungabear.androidstudy.fragment.MainListFragment;
+import com.bungabear.androidstudy.fragment.MainRecyclerFragment;
 import com.bungabear.androidstudy.R;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {

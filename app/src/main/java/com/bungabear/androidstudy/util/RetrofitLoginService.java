@@ -1,6 +1,6 @@
-package com.bungabear.androidstudy.Util;
+package com.bungabear.androidstudy.util;
 
-import com.bungabear.androidstudy.Model.LoginResult;
+import com.bungabear.androidstudy.model.LoginResult;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

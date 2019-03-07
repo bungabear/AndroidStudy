@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Model;
+package com.bungabear.androidstudy.model;
 
 public class DatabindingRecyclerItem {
 

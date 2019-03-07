@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Activity;
+package com.bungabear.androidstudy.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.bungabear.androidstudy.Model.DatabindingBasicTestModel;
+import com.bungabear.androidstudy.model.DatabindingBasicTestModel;
 import com.bungabear.androidstudy.R;
 import com.bungabear.androidstudy.databinding.ActivityDatabindingBasicBinding;
 

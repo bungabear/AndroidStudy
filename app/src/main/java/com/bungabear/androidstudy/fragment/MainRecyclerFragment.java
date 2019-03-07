@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Fragment;
+package com.bungabear.androidstudy.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="com.bungabear.androidstudy.Model.DatabindingBasicTestModel"/>
+            type="com.bungabear.androidstudy.model.DatabindingBasicTestModel"/>
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -1,10 +1,9 @@
-package com.bungabear.androidstudy.Fragment;
+package com.bungabear.androidstudy.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
@@ -15,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bungabear.androidstudy.R;
-import com.bungabear.androidstudy.Recycler.SamplePostRecyclerAdapter;
-import com.bungabear.androidstudy.Util.Singleton;
+import com.bungabear.androidstudy.recycler.SamplePostRecyclerAdapter;
+import com.bungabear.androidstudy.util.Singleton;
 import com.google.gson.JsonArray;
 
 import retrofit2.Call;

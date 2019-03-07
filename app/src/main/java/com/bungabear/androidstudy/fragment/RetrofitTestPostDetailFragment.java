@@ -1,4 +1,4 @@
-package com.bungabear.androidstudy.Fragment;
+package com.bungabear.androidstudy.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bungabear.androidstudy.R;
-import com.bungabear.androidstudy.Recycler.SamplePostRecyclerAdapter;
+import com.bungabear.androidstudy.recycler.SamplePostRecyclerAdapter;
 
 /**
  * Created by Minjae Son on 2018-07-29.
