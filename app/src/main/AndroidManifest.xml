@@ -25,6 +25,7 @@
         <activity android:name=".activity.ResultRequestActivity"/>
         <activity android:name=".activity.RetrofitTest"/>
         <activity android:name=".activity.DatabindingBasic"/>
+        <activity android:name=".webviewactivity.WebViewActivity"/>
     </application>
 
 </manifest>
