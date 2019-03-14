@@ -13,6 +13,7 @@ import android.widget.Switch;
 import com.bungabear.androidstudy.fragment.MainListFragment;
 import com.bungabear.androidstudy.fragment.MainRecyclerFragment;
 import com.bungabear.androidstudy.R;
+import com.bungabear.androidstudy.servicebind.SimpleServiceBindActivity;
 import com.bungabear.androidstudy.webviewactivity.WebViewActivity;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         addToActicityList(RetrofitTest.class, "Retrofit Test");
         addToActicityList(DatabindingBasic.class, "DatabindingBasic Test");
         addToActicityList(WebViewActivity.class, "WebView Test");
+        addToActicityList(SimpleServiceBindActivity.class, "Service Bind Test");
     }
 
     private void addToActicityList(Class activity, String name ){
