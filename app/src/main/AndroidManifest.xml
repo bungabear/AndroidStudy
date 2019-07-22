@@ -29,6 +29,8 @@
         <activity android:name=".activity.DatabindingBasic"/>
         <activity android:name=".webviewactivity.WebViewActivity"/>
         <activity android:name=".servicebind.SimpleServiceBindActivity"/>
+        <activity android:name=".activity.SimpleAnimationActivity"/>
+        <activity android:name=".activity.BottomViewPagerTab"/>
 
         <service android:name=".servicebind.SimpleBindService"/>
     </application>

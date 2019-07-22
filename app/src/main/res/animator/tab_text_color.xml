@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_selected="true">
+        <objectAnimator
+            android:duration="300"
+            android:propertyName="textColor"
+            android:valueType="colorType"
+            android:valueFrom="@android:color/darker_gray"
+            android:valueTo="@android:color/black"/>
+    </item>
+
+    <item>
+        <objectAnimator
+            android:duration="300"
+            android:propertyName="textColor"
+            android:valueType="colorType"
+            android:valueFrom="@android:color/black"
+            android:valueTo="@android:color/darker_gray"/>
+    </item>
+
+</selector>

@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         addToActicityList(RetrofitTest.class, "Retrofit Test");
         addToActicityList(DatabindingBasic.class, "DatabindingBasic Test");
         addToActicityList(WebViewActivity.class, "WebView Test");
-        addToActicityList(SimpleServiceBindActivity.class, "Service Bind Test");
+        addToActicityList(SimpleServiceBindActivity.class, "Service  Bind Test");
+        addToActicityList(BottomViewPagerTab.class, "Bottom ViewPager Tab");
     }
 
     private void addToActicityList(Class activity, String name ){

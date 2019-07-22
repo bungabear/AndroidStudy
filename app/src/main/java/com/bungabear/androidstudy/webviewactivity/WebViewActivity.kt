@@ -8,6 +8,8 @@ import android.text.TextWatcher
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.bungabear.androidstudy.R
 import kotlinx.android.synthetic.main.activity_webview.*
 
@@ -19,9 +21,16 @@ class WebViewActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_webview)
+        WebView.setWebContentsDebuggingEnabled(true)
         wb_activity_webview.settings.javaScriptEnabled = true
         wb_activity_webview.addJavascriptInterface(JavascriptBridge(), "android")
         wb_activity_webview.loadUrl("file:///android_asset/javapage.html")
+        wb_activity_webview.webViewClient = object : WebViewClient(){
+            override fun onPageFinished(view: WebView, url: String) {
+//                super.onPageFinished(view, url)
+                view.loadUrl("javascript:window.android.setMessage('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'")
+            }
+        }
         et_activity_webview.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(p0: Editable?) {
             }

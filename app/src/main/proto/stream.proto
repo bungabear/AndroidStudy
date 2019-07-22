@@ -1,0 +1,19 @@
+syntax="proto3";
+package com.bungabear.androidstudy;
+option java_outer_classname = "gRPCSample";
+service GRPCSample {
+    rpc simple (Request) returns (Response){}
+    rpc toStream(stream Request) returns (Response){}
+    rpc fromStream(Request) returns (stream Response){}
+    rpc biStream(stream Request) returns (stream Response){}
+}
+
+message Request{
+    string cmd = 1;
+    bytes data = 2;
+}
+
+message Response{
+    string cmd = 1;
+    bytes data = 2;
+}
