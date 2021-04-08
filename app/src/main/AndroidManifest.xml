@@ -31,8 +31,11 @@
         <activity android:name=".servicebind.SimpleServiceBindActivity"/>
         <activity android:name=".activity.SimpleAnimationActivity"/>
         <activity android:name=".activity.BottomViewPagerTab"/>
+        <activity android:name=".mediaprojection.activity.MediaProjectionActivity"/>
+        <activity android:name=".mediaprojection.activity.MediaProjectionWithServiceActivity"/>
 
         <service android:name=".servicebind.SimpleBindService"/>
+<!--        <service android:name=".media"-->
     </application>
 
 </manifest>

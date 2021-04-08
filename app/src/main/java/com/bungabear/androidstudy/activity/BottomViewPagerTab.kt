@@ -3,15 +3,15 @@ package com.bungabear.androidstudy.activity
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.content.res.ResourcesCompat
-import android.support.v4.graphics.ColorUtils
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.ColorUtils
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +25,7 @@ class BottomViewPagerTab : AppCompatActivity() {
         private val colorList = listOf(0xFFFF0000.toInt(), 0xFF0000FF.toInt(), 0xFF00FF00.toInt(), 0xFFFFFFFF.toInt())
     }
 
-    lateinit var viewPager : ViewPager
+    lateinit var viewPager : androidx.viewpager.widget.ViewPager
     lateinit var tabLayout : TabLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +69,7 @@ class BottomViewPagerTab : AppCompatActivity() {
             }
 
         })
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+        viewPager.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -95,7 +95,7 @@ class BottomViewPagerTab : AppCompatActivity() {
         return tabLayout
     }
 
-    class TestPagerAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm){
+    class TestPagerAdapter(fm : androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentStatePagerAdapter(fm){
         private val fragments = ArrayList<ColorFragment>()
         init {
             fragments.add(ColorFragment.newInstance(colorList[0]))
@@ -109,7 +109,7 @@ class BottomViewPagerTab : AppCompatActivity() {
     }
 
     // simple color background fragment
-    class ColorFragment : Fragment(){
+    class ColorFragment : androidx.fragment.app.Fragment(){
         private var backgroundColor : Int = 0xFFFFFFFF.toInt()
         private lateinit var mContext : Context
         private lateinit var rootView : ConstraintLayout
@@ -135,13 +135,8 @@ class BottomViewPagerTab : AppCompatActivity() {
             rootView.setBackgroundColor(backgroundColor)
         }
 
-        override fun onAttach(context: Context?) {
-            if (context != null) {
-                mContext = context
-            }
-            else {
-                Log.e(TAG, "no context")
-            }
+        override fun onAttach(context: Context) {
+            mContext = context
             super.onAttach(context)
         }
     }

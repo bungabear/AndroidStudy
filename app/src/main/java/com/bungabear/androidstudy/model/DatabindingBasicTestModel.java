@@ -1,7 +1,7 @@
 package com.bungabear.androidstudy.model;
 
-import android.databinding.BindingAdapter;
-import android.databinding.BindingConversion;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.BindingConversion;
 import android.util.Log;
 import android.widget.TextView;
 

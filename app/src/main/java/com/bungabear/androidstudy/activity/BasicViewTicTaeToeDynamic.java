@@ -1,7 +1,7 @@
 package com.bungabear.androidstudy.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
