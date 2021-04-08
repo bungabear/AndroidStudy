@@ -1,6 +1,5 @@
 package com.bungabear.androidstudy.mediaprojection.activity
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.hardware.display.DisplayManager
@@ -11,13 +10,16 @@ import android.os.Bundle
 import android.view.Surface
 import android.view.SurfaceView
 import android.widget.Button
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.bungabear.androidstudy.R
 
 
 /**
- * @see (https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/media/projection/MediaProjectionDemo.java)
+ *
  */
-class MediaProjectionActivity : Activity() {
+class MediaProjectionActivityNewApi : AppCompatActivity() {
     private val btnStart : Button by lazy { findViewById(R.id.btn_mediaprojection_start) }
     private val btnStop : Button by lazy { findViewById(R.id.btn_mediaprojection_stop) }
     private val surfaceView : SurfaceView by lazy { findViewById(R.id.sv_mediaprojection) }
@@ -25,6 +27,25 @@ class MediaProjectionActivity : Activity() {
     private var mediaProjectionManager: MediaProjectionManager? = null
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
+    private val mediaProjectionRequest : ActivityResultLauncher<Intent> = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+    ){
+        when(it.resultCode){
+            RESULT_OK -> {
+                mediaProjection = mediaProjectionManager?.getMediaProjection(it.resultCode, it.data)
+                mediaProjection?.registerCallback(
+                        object: MediaProjection.Callback() {
+                            override fun onStop() {
+                                stopCapture()
+                                super.onStop()
+                            }
+                        },
+                        null
+                )
+                virtualDisplay = createVirtualDisplay()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,29 +64,6 @@ class MediaProjectionActivity : Activity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        when(requestCode){
-            PERMISSION_CODE -> {
-                when (resultCode) {
-                    RESULT_OK -> {
-                        mediaProjection = mediaProjectionManager?.getMediaProjection(resultCode, data)
-                        mediaProjection?.registerCallback(
-                                object: MediaProjection.Callback() {
-                                    override fun onStop() {
-                                        stopCapture()
-                                        super.onStop()
-                                    }
-                                },
-                                null
-                        )
-                        virtualDisplay = createVirtualDisplay()
-                    }
-                }
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun onDestroy() {
         stopCapture()
         super.onDestroy()
@@ -73,9 +71,8 @@ class MediaProjectionActivity : Activity() {
 
     private fun startCapture(){
         if(mediaProjection == null){
-            startActivityForResult(mediaProjectionManager?.createScreenCaptureIntent(), PERMISSION_CODE)
+            mediaProjectionRequest.launch(mediaProjectionManager?.createScreenCaptureIntent())
         }
-
         virtualDisplay = createVirtualDisplay()
     }
 
@@ -96,9 +93,5 @@ class MediaProjectionActivity : Activity() {
                 null,
                 null
         )
-    }
-
-    companion object{
-        const val PERMISSION_CODE = 1000
     }
 }

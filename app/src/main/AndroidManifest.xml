@@ -32,6 +32,7 @@
         <activity android:name=".activity.SimpleAnimationActivity"/>
         <activity android:name=".activity.BottomViewPagerTab"/>
         <activity android:name=".mediaprojection.activity.MediaProjectionActivity"/>
+        <activity android:name=".mediaprojection.activity.MediaProjectionActivityNewApi"/>
         <activity android:name=".mediaprojection.activity.MediaProjectionWithServiceActivity"/>
 
         <service android:name=".servicebind.SimpleBindService"/>
