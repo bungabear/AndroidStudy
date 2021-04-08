@@ -22,7 +22,7 @@ class MediaProjectionActivity : Activity() {
     private val btnStop : Button by lazy { findViewById(R.id.btn_mediaprojection_stop) }
     private val surfaceView : SurfaceView by lazy { findViewById(R.id.sv_mediaprojection) }
     private var surface : Surface? = null
-    private var mediaProjectionManager: MediaProjectionManager? = null
+    private val mediaProjectionManager: MediaProjectionManager by lazy { getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager }
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
 
@@ -31,8 +31,6 @@ class MediaProjectionActivity : Activity() {
         setContentView(R.layout.activity_mediaprojection)
 
         surface = surfaceView.holder.surface
-        mediaProjectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-
 
         btnStart.setOnClickListener {
             startCapture()

@@ -33,10 +33,13 @@
         <activity android:name=".activity.BottomViewPagerTab"/>
         <activity android:name=".mediaprojection.activity.MediaProjectionActivity"/>
         <activity android:name=".mediaprojection.activity.MediaProjectionActivityNewApi"/>
-        <activity android:name=".mediaprojection.activity.MediaProjectionWithServiceActivity"/>
+        <activity android:name=".mediaprojection.activity.MediaProjectionActivityWithService"/>
 
         <service android:name=".servicebind.SimpleBindService"/>
-<!--        <service android:name=".media"-->
+        <service android:name=".mediaprojection.service.MediaProjectionService"
+            android:enabled="true"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

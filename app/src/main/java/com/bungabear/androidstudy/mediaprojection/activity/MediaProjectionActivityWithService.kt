@@ -1,5 +1,6 @@
 package com.bungabear.androidstudy.mediaprojection.activity
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.hardware.display.DisplayManager
@@ -14,35 +15,23 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bungabear.androidstudy.R
+import com.bungabear.androidstudy.mediaprojection.service.MediaProjectionService
 
-
-/**
- *
- */
-class MediaProjectionActivityNewApi : AppCompatActivity() {
+class MediaProjectionActivityWithService : AppCompatActivity() {
     private val btnStart : Button by lazy { findViewById(R.id.btn_mediaprojection_start) }
     private val btnStop : Button by lazy { findViewById(R.id.btn_mediaprojection_stop) }
     private val surfaceView : SurfaceView by lazy { findViewById(R.id.sv_mediaprojection) }
     private var surface : Surface? = null
     private val mediaProjectionManager: MediaProjectionManager by lazy { getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager }
-    private var mediaProjection: MediaProjection? = null
-    private var virtualDisplay: VirtualDisplay? = null
     private val mediaProjectionRequest : ActivityResultLauncher<Intent> = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
     ){
         when(it.resultCode){
             RESULT_OK -> {
-                mediaProjection = mediaProjectionManager.getMediaProjection(it.resultCode, it.data)
-                mediaProjection?.registerCallback(
-                        object: MediaProjection.Callback() {
-                            override fun onStop() {
-                                stopCapture()
-                                super.onStop()
-                            }
-                        },
-                        null
-                )
-                virtualDisplay = createVirtualDisplay()
+                val data = it.data!!
+                val surface = this.surface!!
+                val intent = MediaProjectionService.startWithInitIntent(this, data, it.resultCode, surface)
+                startService(intent)
             }
         }
     }
@@ -50,7 +39,6 @@ class MediaProjectionActivityNewApi : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mediaprojection)
-
         surface = surfaceView.holder.surface
 
         btnStart.setOnClickListener {
@@ -68,28 +56,21 @@ class MediaProjectionActivityNewApi : AppCompatActivity() {
     }
 
     private fun startCapture(){
-        if(mediaProjection == null){
-            mediaProjectionRequest.launch(mediaProjectionManager?.createScreenCaptureIntent())
-        }
-        virtualDisplay = createVirtualDisplay()
+        mediaProjectionRequest.launch(mediaProjectionManager.createScreenCaptureIntent())
     }
 
     private fun stopCapture(){
-        virtualDisplay?.release()
-        virtualDisplay = null
-//        mediaProjection = null
+        val intent = MediaProjectionService.stopIntent(this)
+        startService(intent)
     }
 
-    private fun createVirtualDisplay(): VirtualDisplay? {
-        return mediaProjection?.createVirtualDisplay(
-                "MediaProjectionDemo",
-                resources.displayMetrics.widthPixels,
-                resources.displayMetrics.heightPixels,
-                resources.displayMetrics.densityDpi,
-                DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
-                surface,
-                null,
-                null
-        )
+    override fun startService(intent: Intent): ComponentName? {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        }
+        else {
+            startService(intent)
+        }
+        return null
     }
 }

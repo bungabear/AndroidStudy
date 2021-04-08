@@ -1,21 +1,22 @@
 package com.bungabear.androidstudy.activity;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.bungabear.androidstudy.R;
 import com.bungabear.androidstudy.fragment.MainListFragment;
 import com.bungabear.androidstudy.fragment.MainRecyclerFragment;
-import com.bungabear.androidstudy.R;
 import com.bungabear.androidstudy.mediaprojection.activity.MediaProjectionActivity;
 import com.bungabear.androidstudy.mediaprojection.activity.MediaProjectionActivityNewApi;
-import com.bungabear.androidstudy.mediaprojection.activity.MediaProjectionWithServiceActivity;
+import com.bungabear.androidstudy.mediaprojection.activity.MediaProjectionActivityWithService;
 import com.bungabear.androidstudy.servicebind.SimpleServiceBindActivity;
 import com.bungabear.androidstudy.webviewactivity.WebViewActivity;
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         addToActicityList(BottomViewPagerTab.class, "Bottom ViewPager Tab");
         addToActicityList(MediaProjectionActivity.class, "MediaProjection");
         addToActicityList(MediaProjectionActivityNewApi.class, "MediaProjection NewAPI");
-        addToActicityList(MediaProjectionWithServiceActivity.class, "MediaProjection WithService");
+        addToActicityList(MediaProjectionActivityWithService.class, "MediaProjection WithService");
     }
 
     private void addToActicityList(Class activity, String name ){
